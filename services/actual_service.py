@@ -27,6 +27,7 @@ class ActualService:
             settings.actual_url,
             password=settings.actual_password,
             file=settings.actual_budget,
+            cert=settings.actual_cert
         ) as actual:
             for tx in transactions:
                 # Map account name to Actual account ID

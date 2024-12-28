@@ -16,3 +16,5 @@ account_mappings:
   checking: "B2F7DF53-6A9C-42CF-B091-9129A3A9B528"
   credit_card: "C3D8F25A-9C7D-4C9B-8589-8A3790C03B2D"
 log_level: INFO
+# Path to the certificate file (optional)
+actual_cert: "/path/to/cert.pem"

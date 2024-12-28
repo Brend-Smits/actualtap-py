@@ -14,6 +14,7 @@ class Settings(BaseSettings):
     actual_backup_payee: str
     account_mappings: Dict[str, str]
     log_level: str = "INFO"
+    actual_cert: str = None  # Path to the certificate file (optional)
 
     class Config:
         env_file = ".env"
