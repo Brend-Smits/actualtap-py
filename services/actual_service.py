@@ -23,11 +23,15 @@ class ActualService:
         transaction_info_list = []
         submitted_transactions = []
 
-        with Actual(
-            settings.actual_url,
-            password=settings.actual_password,
-            file=settings.actual_budget,
-        ) as actual:
+        actual_kwargs = {
+            "url": settings.actual_url,
+            "password": settings.actual_password,
+            "file": settings.actual_budget,
+        }
+        if settings.actual_cert:
+            actual_kwargs["cert"] = settings.actual_cert
+
+        with Actual(**actual_kwargs) as actual:
             for tx in transactions:
                 # Map account name to Actual account ID
                 account_id = settings.account_mappings.get(tx.account, settings.actual_default_account_id)
